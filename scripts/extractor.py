@@ -1,37 +1,23 @@
-import os
-import importlib
-import pandas as pd
-import requests
+from h3 import h3
+import json
 
 
-def load_data(data_path):
-    final_dataframe = pd.DataFrame()
-    list_files = [os.path.join(data_path, f) for f in os.listdir(data_path) if f.endswith('.csv')]
-    for file in list_files:
-        final_dataframe = pd.concat([final_dataframe, pd.read_csv(file, encoding='utf-8')], axis=0)
-    return final_dataframe
 
+def get_h3_components(df,hex_size=3):
+    df['h3_hex_id'] = df.apply(lambda row: h3.geo_to_h3(row['lat'], row['lon'], hex_size), axis=1)
+    df['geometry'] = df['h3_hex_id'].apply(lambda x: {"type": "Polygon",
+                "coordinates":[h3.h3_to_geo_boundary(x, geo_json = True)]})
+    
+def get_geojson_from_h3(df):
+    features = []
+    for i, row in df.iterrows():
+        feature = {"type": "Feature",
+                   "geometry": row['geometry'],
+                   "properties": {"h3_hex_id": row['h3_hex_id']}}
+        features.append(feature)
+    feature_collection = {"type": "FeatureCollection", "features": features}
 
-def get_department(lat, lon):
-    url = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}"
-    response = requests.get(url).json()
-    dep = response.get("address", {}).get("county")
-    return dep
+    geojson_str = json.dumps(feature_collection)
+    geojson_dict = json.loads(geojson_str)
 
-def filter_stations_by_years(data, years):
-    yearly_data = {}
-    common_stations = set()
-    for year in years:
-        yearly_data[year] = data[data["date"].dt.year == year]
-        station_numbers = set(yearly_data[year]["number_sta"])
-        
-        if not common_stations:
-            common_stations = station_numbers
-        else:
-            common_stations = common_stations.intersection(station_numbers)
-
-    # Filtrer les données pour conserver uniquement les stations communes
-    filtered_data = data[data['number_sta'].isin(common_stations)]
-
-    return filtered_data
-
+    return geojson_dict

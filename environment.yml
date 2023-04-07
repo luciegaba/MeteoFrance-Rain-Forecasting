@@ -1,0 +1,9 @@
+name: meteofrance-prevision
+dependencies:
+  - python=3.8.16
+  - pip:
+    - pandas
+    - dask
+    - matplotlib
+    - plotly
+    - h3
