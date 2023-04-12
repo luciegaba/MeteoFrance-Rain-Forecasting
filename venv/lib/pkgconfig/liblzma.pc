@@ -1,0 +1,19 @@
+#
+# Author: Lasse Collin
+#
+# This file has been put into the public domain.
+# You can do whatever you want with this file.
+#
+
+prefix=/workspaces/MeteoFrance-Rain-Forecasting/venv
+exec_prefix=/workspaces/MeteoFrance-Rain-Forecasting/venv
+libdir=/workspaces/MeteoFrance-Rain-Forecasting/venv/lib
+includedir=/workspaces/MeteoFrance-Rain-Forecasting/venv/include
+
+Name: liblzma
+Description: General purpose data compression library
+URL: https://tukaani.org/xz/
+Version: 5.2.10
+Cflags: -I${includedir}
+Libs: -L${libdir} -llzma
+Libs.private: -pthread -lpthread

@@ -1,0 +1,13 @@
+prefix=/workspaces/MeteoFrance-Rain-Forecasting/venv
+exec_prefix=/workspaces/MeteoFrance-Rain-Forecasting/venv
+libdir=/workspaces/MeteoFrance-Rain-Forecasting/venv/lib
+sharedlibdir=/workspaces/MeteoFrance-Rain-Forecasting/venv/lib
+includedir=/workspaces/MeteoFrance-Rain-Forecasting/venv/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
