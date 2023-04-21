@@ -1,9 +1,15 @@
 name: meteofrance-prevision
 dependencies:
   - python=3.8.16
+  - tensorflow
   - pip:
+    - mflow
     - pandas
     - dask
     - matplotlib
+    - numpy
     - plotly
+    - scipy
+    - pmdarima
+    - scikit-learn
     - h3
