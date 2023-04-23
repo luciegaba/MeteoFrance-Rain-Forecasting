@@ -9,7 +9,7 @@
 <br>
 
 ## À propos
-Ce projet vise à construire un modèle selon une approche en séries temporelles pour prédire les précipitations journalières sur 7 jours. 
+Ce projet vise à construire un modèle de prévisions de précipitations de pluie selon une approche en séries temporelles, pour prédire les précipitations journalières sur 7 jours. 
 
 ## Contenu
 Ce projet contient :
