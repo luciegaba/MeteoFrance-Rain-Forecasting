@@ -5,8 +5,6 @@
 * [À propos](#à-propos)
 * [Contenu](#contenu)
 * [Installation](#installation)
-* [Résultats](#résultats)
-* [Contact](#contact)
 
 <br>
 
