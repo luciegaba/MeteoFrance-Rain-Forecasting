@@ -30,6 +30,5 @@ Vous pouvez également créer un environnement conda (ou un équivalent) avec le
 conda env create -f environment.yml
 conda activate meteofrance-prevision
 ```
-Normalement, vous devriez avoir accès à un bucket S3. Sinon, la base d'origine (16G0) est à retrouver [ici](https://meteonet.umr-cnrm.fr/dataset/data/) en récupérant le contenu de "grounds_stations" dans NW et SE.
-Remarque: un jeu de données intermédiaire (moins volumineux) peut ê sera à placer dans "data/intermediate" 
-Normalement, vous devriez avoir accès à un bucket S3. Sinon, la base d'origine (16G0) est à retrouver [ici](https://meteonet.umr-cnrm.fr/dataset/data/) en récupérant le contenu de "grounds_stations" dans NW et SE. Les csv devront être mis dans   Sinon, un jeu de données intermédiaire (moins volumineux) sera à  récupérer dans le [Drive](https://drive.google.com/file/d/1MCbUBo39btOu9SBlVZ6jN3sLgOPxTGV-/view?usp=share_link) et devra être placé dans "data/intermediate".
+Normalement, vous devriez avoir accès à un bucket S3. Sinon, la base d'origine (16G0) est à retrouver [ici](https://meteonet.umr-cnrm.fr/dataset/data/) en récupérant le contenu de "grounds_stations" dans NW et SE et à déposer dans "data/raw".
+Sinon, un jeu de données intermédiaire (moins volumineux) sera à  récupérer dans le [Drive](https://drive.google.com/file/d/1MCbUBo39btOu9SBlVZ6jN3sLgOPxTGV-/view?usp=share_link) et devra être placé dans "data/intermediate".
